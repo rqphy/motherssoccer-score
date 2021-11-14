@@ -1,0 +1,24 @@
+{
+  "name": "motherssoccer-score",
+  "version": "1.0.0",
+  "description": "API for the scoreboard of the game",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rqphy/motherssoccer-score.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rqphy/motherssoccer-score/issues"
+  },
+  "homepage": "https://github.com/rqphy/motherssoccer-score#readme"
+}
