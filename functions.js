@@ -32,7 +32,7 @@ const getBestScores = async (limit, knex) =>
     const sqlQuery = `
         SELECT name, score
         FROM scores
-        ORDER BY score
+        ORDER BY score DESC
         LIMIT ${limit}
     `
 
