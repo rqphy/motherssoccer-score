@@ -17,7 +17,6 @@ const PORT = 3000
 // MIDDLEWARES
 app.use('/:apiKey', (req, res, next) =>
 {
-    
     if (tools.auth(req.params.apiKey))
     {
         next()
@@ -25,8 +24,9 @@ app.use('/:apiKey', (req, res, next) =>
     {
         res.status(406).send({msg: 'BAD API KEY'})
     }
-
 })
+
+app.use('/:apiKey/new', tools.validateName)
 
 // ROUTE
 app.get('/', (req, res) =>

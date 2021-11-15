@@ -5,6 +5,20 @@ const auth = (apiKey) =>
     return apiKey === process.env.API_KEY
 }
 
+const validateName = (req, res, next) =>
+{
+    const { name } = req.body
+    const regex = new RegExp(/[a-zA-Z]/)
+
+    if(name && regex.test(name))
+    {
+        next()
+    } else
+    {
+        res.status(406).send({ msg: 'Inappropriate name' })
+    }
+}
+
 const insertScore = async (DTO, knex) =>
 {
     const columns = Object.keys(DTO);
@@ -49,6 +63,7 @@ const getBestScores = async (limit, knex) =>
     return request
 }
 
+module.exports.validateName = validateName
 module.exports.auth = auth
 module.exports.insertScore = insertScore
 module.exports.getBestScores = getBestScores
