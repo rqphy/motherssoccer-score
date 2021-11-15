@@ -27,5 +27,28 @@ const insertScore = async (DTO, knex) =>
 
 }
 
+const getBestScores = async (limit, knex) =>
+{
+    const sqlQuery = `
+        SELECT name, score
+        FROM scores
+        ORDER BY score
+        LIMIT ${limit}
+    `
+
+    let request
+    try
+    {
+        request = await knex.raw(sqlQuery)
+    } catch (error)
+    {
+        console.error('error: ', error)
+        return false
+    }
+
+    return request
+}
+
 module.exports.auth = auth
 module.exports.insertScore = insertScore
+module.exports.getBestScores = getBestScores

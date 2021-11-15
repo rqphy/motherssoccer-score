@@ -47,9 +47,10 @@ app.post('/:apiKey/new', async (req, res) =>
 
 })
 
-app.get('/auth', (req, res) =>
+app.get('/:apiKey/list/:limit?', async (req, res) =>
 {
-    res.send('hello auth')
+    const response = await tools.getBestScores(req.params.limit ?? 5, knex)
+    res.send(response[0])
 })
 
 
