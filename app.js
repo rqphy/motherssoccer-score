@@ -34,9 +34,20 @@ app.get('/', (req, res) =>
     res.sendFile(path.join(__dirname, '/404.html'))
 })
 
-app.get('/:apiKey/', (req, res) =>
+app.post('/:apiKey/', async (req, res) =>
 {
-    res.send('hello world')
+    console.log(req.body)
+    const DTO = {
+        name: req.body.name,
+        score: req.body.score,
+        date: Date.now()
+    }
+    
+    const response = await tools.insertScore(DTO, knex)
+    console.log(response)
+    res.send(response)
+    // res.send( response[0][0].affectedRows && response[1][0].affectedRows ? 'created' : 'Error')
+
 })
 
 app.get('/auth', (req, res) =>
