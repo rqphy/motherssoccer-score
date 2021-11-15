@@ -36,7 +36,6 @@ app.get('/', (req, res) =>
 
 app.post('/:apiKey/', async (req, res) =>
 {
-    console.log(req.body)
     const DTO = {
         name: req.body.name,
         score: req.body.score,
@@ -44,9 +43,7 @@ app.post('/:apiKey/', async (req, res) =>
     }
     
     const response = await tools.insertScore(DTO, knex)
-    console.log(response)
     res.send(response)
-    // res.send( response[0][0].affectedRows && response[1][0].affectedRows ? 'created' : 'Error')
 
 })
 
