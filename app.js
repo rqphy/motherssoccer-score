@@ -34,7 +34,7 @@ app.get('/', (req, res) =>
     res.sendFile(path.join(__dirname, '/404.html'))
 })
 
-app.post('/:apiKey/', async (req, res) =>
+app.post('/:apiKey/new', async (req, res) =>
 {
     const DTO = {
         name: req.body.name,
