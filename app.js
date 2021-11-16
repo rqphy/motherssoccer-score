@@ -31,7 +31,8 @@ app.use('/:apiKey/new', tools.validateName)
 // ROUTE
 app.get('/', (req, res) =>
 {
-    res.sendFile(path.join(__dirname, '/404.html'))
+    res.writeHead(302, {'Location': 'https://github.com/rqphy/motherssoccer-score'})
+    res.end()
 })
 
 app.post('/:apiKey/new', async (req, res) =>
